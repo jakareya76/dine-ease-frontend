@@ -6,8 +6,8 @@ const Navbar = () => {
       <div className="container flex items-center justify-center py-5 mx-auto">
         <div className="flex items-center justify-start w-1/2">
           <img src={logo} alt="logo" className="w-12" />
-          <h2 className="mx-4 mt-4 font-serif text-2xl font-bold text-white">
-            BISTRO BOSS
+          <h2 className="mx-4 mt-4 font-serif text-2xl font-bold text-white uppercase">
+            Dine Ease
           </h2>
         </div>
         <div className="flex items-center justify-end w-1/2">
