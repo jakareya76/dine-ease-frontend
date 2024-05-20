@@ -1,5 +1,5 @@
-import SectionHeading from "./SectionHeading";
-import featuredImg from "../assets/home/featured.jpg";
+import SectionHeading from "../Shared/SectionHeading";
+import featuredImg from "../../assets/home/featured.jpg";
 
 const Featured = () => {
   return (

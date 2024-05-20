@@ -1,14 +1,18 @@
-import Banner from "../components/Banner";
-import Category from "../components/Category";
-import PopularMenu from "../components/PopularMenu";
+import Banner from "../components/Home/Banner";
+import Category from "../components/Home/Category";
+import PopularMenu from "../components/Home/PopularMenu";
 
 import bannerImg from "../assets/home/banner.jpg";
-import Featured from "../components/Featured";
-import Testimonials from "../components/Testimonials";
+import Featured from "../components/Home/Featured";
+import Testimonials from "../components/Home/Testimonials";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Dine Ease | Home</title>
+      </Helmet>
       <Banner />
       <main className="container mx-auto">
         <Category />

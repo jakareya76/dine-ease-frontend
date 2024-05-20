@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "@smastrom/react-rating/style.css";
 
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../Shared/SectionHeading";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
