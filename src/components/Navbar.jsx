@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-
 import logo from "../assets/logo.png";
 import MobileMenu from "./MobileMenu";
+import NavOptions from "./NavOptions";
 
 const Navbar = () => {
   return (
@@ -15,16 +14,7 @@ const Navbar = () => {
         </div>
         <div className="items-center justify-end flex-1 hidden lg:flex">
           <ul className="flex text-sm font-semibold text-white uppercase md:gap-6 lg:text-md font-inter">
-            <li className="cursor-pointer hover:text-yellow-500">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="cursor-pointer hover:text-yellow-500">CONTACT us</li>
-            <li className="cursor-pointer hover:text-yellow-500">DASHBOARD</li>
-            <li className="cursor-pointer hover:text-yellow-500">
-              <Link to="/menu">Our Menu</Link>
-            </li>
-            <li className="cursor-pointer hover:text-yellow-500">Our Shop</li>
-            <li className="cursor-pointer hover:text-yellow-500">SIGN OUT</li>
+            <NavOptions />
           </ul>
         </div>
 

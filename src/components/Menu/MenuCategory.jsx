@@ -6,7 +6,7 @@ const MenuCategory = ({ items, title, text, coverImg }) => {
     <section className="px-5 py-20">
       {title && <CoverSection img={coverImg} title={title} text={text} />}
 
-      <div className="grid grid-cols-1 gap-10 mt-16 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 my-16 lg:grid-cols-2">
         {items.map((item) => {
           return <MenuCard key={item._id} item={item} />;
         })}

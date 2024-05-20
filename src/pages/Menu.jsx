@@ -36,7 +36,7 @@ const Menu = () => {
   });
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Dine Ease | Menu</title>
       </Helmet>
@@ -87,7 +87,7 @@ const Menu = () => {
         }
         coverImg={soupImg}
       />
-    </div>
+    </>
   );
 };
 
