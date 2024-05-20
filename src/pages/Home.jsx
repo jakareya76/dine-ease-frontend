@@ -9,6 +9,13 @@ const Home = () => {
       <main className="container mx-auto">
         <Category />
         <PopularMenu />
+        <div className="px-5 py-10">
+          <div className="flex items-center justify-center p-20 bg-[#151515] rounded">
+            <h2 className="text-3xl font-semibold text-white">
+              Call Us: +88 0192345678910
+            </h2>
+          </div>
+        </div>
       </main>
     </>
   );
