@@ -7,7 +7,7 @@ const Featured = () => {
       style={{ backgroundImage: `url(${featuredImg})` }}
       className="relative my-20 text-white bg-fixed"
     >
-      <div className="absolute z-10 w-full h-full opacity-25 bg-zinc-800"></div>
+      <div className="absolute z-10 w-full h-full opacity-60 bg-zinc-800"></div>
       <div className="relative z-50 pt-12">
         <SectionHeading
           text="check it out"
