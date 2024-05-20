@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.thumbs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .swiper-pagination {
   position: static !important;
   margin-top: 25px;

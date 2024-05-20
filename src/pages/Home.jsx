@@ -2,12 +2,30 @@ import Banner from "../components/Banner";
 import Category from "../components/Category";
 import PopularMenu from "../components/PopularMenu";
 
+import bannerImg from "../assets/home/banner.jpg";
+import Featured from "../components/Featured";
+import Testimonials from "../components/Testimonials";
+
 const Home = () => {
   return (
     <>
       <Banner />
       <main className="container mx-auto">
         <Category />
+        <div
+          style={{ backgroundImage: `url(${bannerImg})` }}
+          className="object-cover p-10 bg-center bg-cover rounded-md md:p-36"
+        >
+          <div className="p-5 text-center bg-white md:p-20">
+            <h2 className="font-serif text-4xl font-thin">Bistro Boss</h2>
+            <p className="max-w-xl mx-auto my-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus, libero accusamus laborum deserunt ratione dolor
+              officiis praesentium! Deserunt magni aperiam dolor eius dolore at,
+              nihil iusto ducimus incidunt quibusdam nemo.
+            </p>
+          </div>
+        </div>
         <PopularMenu />
         <div className="px-5 py-10">
           <div className="flex items-center justify-center p-20 bg-[#151515] rounded">
@@ -16,6 +34,8 @@ const Home = () => {
             </h2>
           </div>
         </div>
+        <Featured />
+        <Testimonials />
       </main>
     </>
   );

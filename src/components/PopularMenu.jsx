@@ -21,7 +21,7 @@ const PopularMenu = () => {
   }, []);
 
   return (
-    <section className="px-5 py-10">
+    <section className="px-5 py-20">
       <SectionHeading title="FROM OUR MENU" text="Check it out" />
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         {menu.map((item) => {
