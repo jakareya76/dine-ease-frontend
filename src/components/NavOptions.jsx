@@ -12,7 +12,7 @@ const NavOptions = () => {
         <Link to="/menu">Our Menu</Link>
       </li>
       <li className="cursor-pointer hover:text-yellow-500">
-        <Link to="/order">Order Food</Link>
+        <Link to="/order/salad">Order Food</Link>
       </li>
       <li className="cursor-pointer hover:text-yellow-500">SIGN OUT</li>
     </>
