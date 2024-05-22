@@ -14,7 +14,12 @@ const NavOptions = () => {
       <li className="cursor-pointer hover:text-yellow-500">
         <Link to="/order/salad">Order Food</Link>
       </li>
-      <li className="cursor-pointer hover:text-yellow-500">SIGN OUT</li>
+      <li className="cursor-pointer hover:text-yellow-500">
+        <Link to="/login">LOGIN</Link>
+      </li>
+      <li className="cursor-pointer hover:text-yellow-500">
+        <Link to="/sign-up">SIGN UP</Link>
+      </li>
     </>
   );
 };
