@@ -13,7 +13,7 @@ const Navbar = () => {
           </h2>
         </div>
         <div className="items-center justify-end flex-1 hidden lg:flex">
-          <ul className="flex text-sm font-semibold text-white uppercase md:gap-6 lg:text-md font-inter">
+          <ul className="flex items-center text-sm font-semibold text-white uppercase md:gap-6 lg:text-md font-inter">
             <NavOptions />
           </ul>
         </div>
