@@ -25,9 +25,6 @@ const NavOptions = () => {
           <>
             {user ? (
               <>
-                <li className="cursor-pointer hover:text-yellow-500">
-                  <Link to="/dashboard">DASHBOARD</Link>
-                </li>
                 <li>
                   <button
                     onClick={() => logout()}

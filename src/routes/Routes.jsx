@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
+import AuthLayout from "../layouts/AuthLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
+
 import Home from "../pages/Home";
 import Menu from "../pages/Menu";
 import Order from "../pages/Order";
-import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import Dashboard from "../pages/Dashboard";
+import Cart from "../pages/Dashboard/Cart";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -27,13 +29,19 @@ const Routes = createBrowserRouter([
         path: "/order/:category",
         element: <Order />,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

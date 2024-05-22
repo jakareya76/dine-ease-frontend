@@ -1,8 +1,13 @@
 import logo from "../assets/logo.png";
 import MobileMenu from "./MobileMenu";
 import NavOptions from "./NavOptions";
+import cartImg from "../assets/icon/cart.png";
+import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [cart] = useCart();
+
   return (
     <nav className="bg-[#00000080] absolute z-50 w-full">
       <div className="container flex items-center justify-center px-2 py-3 mx-auto sm:py-5">
@@ -20,6 +25,15 @@ const Navbar = () => {
 
         {/* Mobile Menu  */}
         <MobileMenu />
+
+        <Link to="/dashboard/cart" className="mt-1 ml-5">
+          <button className="relative">
+            <img src={cartImg} alt="cart" className="w-10 h-10" />
+            <div className="absolute right-0 p-1 text-xs bg-white rounded-full top-5">
+              +{cart.length}
+            </div>
+          </button>
+        </Link>
       </div>
     </nav>
   );

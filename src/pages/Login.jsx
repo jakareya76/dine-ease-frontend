@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -16,9 +16,12 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
 
-  const navigate = useNavigate();
-
   const { loginUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -30,7 +33,7 @@ const Login = () => {
     try {
       await loginUser(email, password);
       toast.success("Login Successfull");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (error) {
       if (error.message === "Firebase: Error (auth/invalid-credential).") {
         toast.error("invalid credential");

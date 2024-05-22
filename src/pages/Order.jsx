@@ -20,8 +20,6 @@ const Order = () => {
 
   const [tabIndex, setTabIndex] = useState(initialIndex);
 
-  console.log(tabIndex);
-
   const dessert = menu.filter((item) => {
     return item.category === "dessert";
   });
