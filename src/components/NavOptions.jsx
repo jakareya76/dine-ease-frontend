@@ -11,7 +11,7 @@ const NavOptions = () => {
         <Link to="/">Home</Link>
       </li>
       <li className="cursor-pointer hover:text-yellow-500">CONTACT us</li>
-      <li className="cursor-pointer hover:text-yellow-500">DASHBOARD</li>
+
       <li className="cursor-pointer hover:text-yellow-500">
         <Link to="/menu">Our Menu</Link>
       </li>
@@ -24,14 +24,19 @@ const NavOptions = () => {
         ) : (
           <>
             {user ? (
-              <li>
-                <button
-                  onClick={() => logout()}
-                  className="px-5 py-3 text-white bg-blue-500 rounded"
-                >
-                  Logout
-                </button>
-              </li>
+              <>
+                <li className="cursor-pointer hover:text-yellow-500">
+                  <Link to="/dashboard">DASHBOARD</Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => logout()}
+                    className="px-5 py-3 text-white bg-blue-500 rounded"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
             ) : (
               <>
                 <li className="cursor-pointer hover:text-yellow-500">

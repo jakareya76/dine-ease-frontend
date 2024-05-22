@@ -16,8 +16,6 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
 
-  const captchaRef = useRef(null);
-
   const navigate = useNavigate();
 
   const { loginUser } = useContext(AuthContext);
@@ -44,8 +42,8 @@ const Login = () => {
     loadCaptchaEnginge(6);
   }, []);
 
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
 
     if (validateCaptcha(user_captcha_value)) {
       setDisabled(false);
@@ -97,19 +95,12 @@ const Login = () => {
                   <LoadCanvasTemplate />
                 </label>
                 <input
-                  ref={captchaRef}
                   type="text"
                   name="captcha"
                   placeholder="Enter Captcha"
                   className="w-full px-4 py-3 border rounded outline-none"
+                  onBlur={handleValidateCaptcha}
                 />
-                <button
-                  type="button"
-                  onClick={handleValidateCaptcha}
-                  className="w-full py-1 text-white bg-green-600"
-                >
-                  Verify
-                </button>
               </div>
               <button
                 disabled={disabled}
