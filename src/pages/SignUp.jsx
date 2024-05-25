@@ -10,9 +10,12 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
 import { toast } from "react-toastify";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const SignUp = () => {
   const { signUp } = useContext(AuthContext);
+
+  const axiosPublic = useAxiosPublic();
 
   const navigate = useNavigate();
 
@@ -35,7 +38,17 @@ const SignUp = () => {
 
       toast.success("Sign Up Successfull");
 
-      navigate("/");
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+      };
+
+      const res = await axiosPublic.post("/users", userInfo);
+      console.log(res.data);
+
+      if (res.data.insertedId) {
+        navigate("/");
+      }
     } catch (error) {
       toast.error(error.message);
     }
