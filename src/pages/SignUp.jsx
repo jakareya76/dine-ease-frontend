@@ -1,19 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import authImg from "../assets/others/authentication2.png";
 import authBg from "../assets/others/authentication.png";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-
 import { toast } from "react-toastify";
+
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import SocialLogin from "../components/Shared/SocialLogin";
+import useAuth from "../hooks/useAuth";
 
 const SignUp = () => {
-  const { signUp } = useContext(AuthContext);
+  const { signUp, user } = useAuth();
 
   const axiosPublic = useAxiosPublic();
 
@@ -53,6 +53,10 @@ const SignUp = () => {
       toast.error(error.message);
     }
   };
+
+  if (user) {
+    return navigate("/");
+  }
 
   return (
     <>
@@ -119,6 +123,7 @@ const SignUp = () => {
                 Please Login
               </Link>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>

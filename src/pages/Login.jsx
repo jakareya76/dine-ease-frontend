@@ -1,22 +1,24 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
 
+import useAuth from "../hooks/useAuth";
+
 import authImg from "../assets/others/authentication2.png";
 import authBg from "../assets/others/authentication.png";
-import { AuthContext } from "../context/AuthProvider";
-import { Helmet } from "react-helmet-async";
 
-import { toast } from "react-toastify";
+import SocialLogin from "../components/Shared/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
 
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, user } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -52,6 +54,10 @@ const Login = () => {
       setDisabled(false);
     }
   };
+
+  if (user) {
+    return navigate("/");
+  }
 
   return (
     <>
@@ -118,6 +124,7 @@ const Login = () => {
                 Create a New Account
               </Link>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>

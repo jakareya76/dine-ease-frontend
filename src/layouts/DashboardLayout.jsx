@@ -1,9 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { GoCodeReview } from "react-icons/go";
-import { FaBars, FaCalendarDay, FaCartShopping, FaList } from "react-icons/fa6";
-import { FaHome } from "react-icons/fa";
+import {
+  FaBars,
+  FaCalendarDay,
+  FaCartShopping,
+  FaList,
+  FaUtensils,
+} from "react-icons/fa6";
+import { FaEnvelope, FaHome, FaUsers } from "react-icons/fa";
 
 const DashboardLayout = () => {
+  // TODO: get is admin form database
+  const isAdmin = true;
+
   return (
     <div className="flex">
       <div className="w-64 min-h-screen bg-[#D1A054]">
@@ -11,33 +20,63 @@ const DashboardLayout = () => {
           DINE EASE
         </h2>
         <ul className="p-4 space-y-3 menu">
-          <li>
-            <NavLink to="/dashboard/user-home">
-              <FaHome /> User Home
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaCartShopping /> My Cart
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/dashboard/reservation">
-              <FaCalendarDay /> My Reservation
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/review">
-              <GoCodeReview /> Add A Review
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/booking">
-              <FaList /> My Booking
-            </NavLink>
-          </li>
+          {isAdmin ? (
+            <>
+              <li>
+                <NavLink to="/dashboard/admin-home">
+                  <FaHome /> Admin Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/add-items">
+                  <FaUtensils /> Add Items
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manage-items">
+                  <FaList /> Manage Items
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manage-bookings">
+                  <GoCodeReview /> Manage Bookings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/all-users">
+                  <FaUsers /> All Users
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/dashboard/user-home">
+                  <FaHome /> User Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaCartShopping /> My Cart
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/reservation">
+                  <FaCalendarDay /> My Reservation
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/review">
+                  <GoCodeReview /> Add A Review
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/booking">
+                  <FaList /> My Booking
+                </NavLink>
+              </li>
+            </>
+          )}
 
           <div className="divider"></div>
 
@@ -49,6 +88,11 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="/">
               <FaBars /> Menu
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/">
+              <FaEnvelope /> Contact
             </NavLink>
           </li>
         </ul>
