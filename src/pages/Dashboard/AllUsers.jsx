@@ -24,8 +24,6 @@ const AllUsers = () => {
     try {
       const res = await axiosSecure.patch(`/users/admin/${user._id}`);
 
-      console.log(res);
-
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("Admin Created Successfully");

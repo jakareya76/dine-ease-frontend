@@ -44,7 +44,6 @@ const SignUp = () => {
       };
 
       const res = await axiosPublic.post("/users", userInfo);
-      console.log(res.data);
 
       if (res.data.insertedId) {
         navigate("/");
