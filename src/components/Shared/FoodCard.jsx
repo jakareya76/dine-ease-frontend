@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
-import useAxios from "../../hooks/useAxios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
@@ -11,7 +11,7 @@ const FoodCard = ({ item }) => {
   const location = useLocation();
 
   const { user } = useAuth();
-  const axiosSecure = useAxios();
+  const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
 
   const handleAddToCart = async () => {

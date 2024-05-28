@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../components/Shared/SectionHeading";
-import useAxios from "../../hooks/useAxios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import { FaUsers } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 
 const AllUsers = () => {
-  const axiosSecure = useAxios();
+  const axiosSecure = useAxiosSecure();
 
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
