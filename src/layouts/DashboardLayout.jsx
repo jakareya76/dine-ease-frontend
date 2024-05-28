@@ -8,10 +8,11 @@ import {
   FaUtensils,
 } from "react-icons/fa6";
 import { FaEnvelope, FaHome, FaUsers } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
   // TODO: get is admin form database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex">
