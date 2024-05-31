@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
@@ -9,6 +10,8 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [error, setError] = useState("");
   const [transactionId, setTransactionId] = useState("");
+
+  const navigate = useNavigate();
 
   const axiosSecure = useAxiosSecure();
   const [cart, refetch] = useCart();
@@ -80,6 +83,7 @@ const CheckoutForm = () => {
 
         if (res.data?.paymentResult?.insertedId) {
           toast.success("Payment Successfull");
+          navigate("/dashboard/payment-history");
         }
       }
     }
