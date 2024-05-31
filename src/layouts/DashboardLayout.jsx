@@ -62,7 +62,7 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/reservation">
+                <NavLink to="/dashboard/payment-history">
                   <FaCalendarDay /> My Reservation
                 </NavLink>
               </li>
