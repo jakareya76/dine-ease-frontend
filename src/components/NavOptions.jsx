@@ -1,9 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthProvider";
+import useAuth from "../hooks/useAuth";
+import useAdmin from "../hooks/useAdmin";
 
 const NavOptions = () => {
-  const { user, loading, logout } = useContext(AuthContext);
+  const { user, loading, logout } = useAuth();
+  const [isAdmin] = useAdmin();
 
   return (
     <>
@@ -25,6 +26,26 @@ const NavOptions = () => {
           <>
             {user ? (
               <>
+                {user && isAdmin && (
+                  <li>
+                    <Link
+                      to="/dashboard/admin-home"
+                      className="px-5 py-3 text-white bg-blue-500 rounded"
+                    >
+                      Admin
+                    </Link>
+                  </li>
+                )}
+                {user && !isAdmin && (
+                  <li>
+                    <Link
+                      to="/dashboard/user-home"
+                      className="px-5 py-3 text-white bg-blue-500 rounded"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <button
                     onClick={() => logout()}
